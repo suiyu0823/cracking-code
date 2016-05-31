@@ -47,7 +47,6 @@ node *partition(node *n, int k)
 {
 	node *head = n;
 	node *tail = n;
-
 	while (n != NULL)
 	{
 		node *next = n->next;
@@ -63,14 +62,16 @@ node *partition(node *n, int k)
 		}
 		n = next;
 	}
+	cout << tail->next->data << endl;
 	tail->next = NULL;
 	print(head);
 	return head;
 }
 int main()
 {
+
 	vector<int> v;
-	for (int i = 0; i < 25; i++)
+	for (int i = 0; i < 5; i++)
 	{
 		v.push_back(i);
 	}

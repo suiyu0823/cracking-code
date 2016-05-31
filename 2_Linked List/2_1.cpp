@@ -44,10 +44,8 @@ void remove_withHash(node * head)
 	{
 		if(table[runner->data])
 		{
-			node *temp = runner;
 			current->next = runner->next;
-			runner = current->next;
-			//delete temp;
+			runner = runner->next;
 		}
 		else
 		{

@@ -6,15 +6,9 @@ void setZero(int *m, int row, int col)
 		bool m_row [row];
 		bool m_col [col];
 		int i , j;
-		
-		for (i = 0; i < row ;i++)
-		{
-			m_row[i] = false;
-			for (j = 0; j < col; j++)
-			{
-				m_col[j] = false;
-			}
-		}
+        
+        memset(m_row, false, sizeof(m_row));
+        memset(m_col, false, sizeof(m_col));
 		
 
 		for (i = 0; i < row; i++)
@@ -28,27 +22,18 @@ void setZero(int *m, int row, int col)
 				}
 			}
 		}
+        
 		for (i = 0; i < row; i++)
 		{
-			if (m_row[i]) 
-			{
 				for (j = 0; j < col; j++)
 				{
-					*(m + i * col + j) = 0;
+                    if(m_row[i] || m_col[j])
+                    {
+                        *(m + i * col + j) = 0;
+                    }
 				}
-			}
 		}
 
-		for (j = 0; j < col; j++)
-		{
-			if (m_col[j]) 
-			{
-				for (i = 0; i < row; i++)
-				{
-					* (m + i * row + j) = 0;
-				}
-			}
-		}
 	}
 void printMatrix(int *m, int row, int col)
 	{

@@ -43,7 +43,7 @@ void print(node *head)
 	cout << endl;	
 }
 
-void delete(node *head)
+void remove(node *head)
 {
 	if(head == NULL) return;
 	node * end = head->next;
@@ -53,11 +53,18 @@ void delete(node *head)
 int main()
 {
 	vector<int> v;
-	for (int i = 0; i < 20; i++)
+	for (int i = 0; i < 5; i++)
 	{
 		v.push_back(i);
 	}
 	node *head = init(v);
 	print(head);
-	delete(head);
+    int cc = 3;
+    node* c = head;
+    for (int i = 1; i < cc; i++)
+    {
+        c = c->next;
+    }
+	remove(c);
+    print(head);
 }

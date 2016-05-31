@@ -3,7 +3,7 @@
 
 using namespace std;
 
-string replace(string &s)
+void replace(string &s)
 	{
 		string temp;
 		int space_count = 0, newsize, i;
@@ -14,7 +14,7 @@ string replace(string &s)
 				space_count++;
 			}
 		}
-		newsize = s.size() + space_count * 3;
+		newsize = s.size() + space_count * 2;
 		char tmp[newsize];
 		tmp[newsize] = '\0';
 		for (i = s.size()-1; i >= 0; i--)
@@ -23,9 +23,8 @@ string replace(string &s)
 			{
 				tmp[newsize - 1] = '0';
 				tmp[newsize - 2] = '2';
-				tmp[newsize - 3] = '5';
-				tmp[newsize - 4] = '%';
-				newsize = newsize - 4;
+				tmp[newsize - 3] = '%';
+                newsize = newsize - 3;
 			}
 			else
 			{
@@ -33,15 +32,13 @@ string replace(string &s)
 				newsize = newsize - 1;
 			}
 		}
-		temp = string(tmp);
-		return temp;
-
+		s = string(tmp);
 	}
 
 int main ()
 	{
-		string s = "i love xiuxiu baobao pangpang";
-		string temp = replace(s);
-		cout << temp << endl;
+		string s = "i love xiuxiu";
+        replace(s);
+		cout << s << endl;
 
 	}
