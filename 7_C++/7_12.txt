@@ -1,0 +1,29 @@
+Write a function called my2DAlloc which allocates a two dimensional array. Minimize the number of calls to malloc and make sure that the memory is accessible by the notation arr[i][j].
+我们需要存储指向每一行的地址，大小为：
+
+int header = rows * sizeof(int*);
+同时需要存储rows*cols的整型数据，大小为：
+
+int data = rows * cols * sizeof(int);
+我们一次性将这些空间申请下来：
+
+int **arr = (int**)malloc(header + data);
+由于前面rows * sizeof(int*)的大小存放的是指针，因此arr类型是int**。 而跨过rows个单元后，后面存放的是整型数据，因此需要将其类型转为int*：
+
+int *buf = (int*)(arr + rows);
+最后，从buf指向的地址开始，每cols个单元组成一行，将行首地址存放到arr 的相应位置即可。
+
+for(int i=0; i<rows; ++i)
+    arr[i] = buf + i * cols;
+代码如下：
+
+int** My2DAlloc1(int rows, int cols){
+    int header = rows * sizeof(int*);
+    int data = rows * cols * sizeof(int);
+    int **arr = (int**)malloc(header + data);
+    int *buf = (int*)(arr + rows);
+    for(int i=0; i<rows; ++i)
+        arr[i] = buf + i * cols;
+    return arr;
+}
+这样一来，我们使用一次的malloc就可以动态地申请二维数组空间， 并且可以用arr[i][j]对数组元素进行访问。

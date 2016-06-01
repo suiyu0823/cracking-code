@@ -1,0 +1,7 @@
+If you have a 2GB file with one string per line, which sorting algorithm would you use to sort the file and why ?
+
+Obviously, when interviewers say, 2GB file, they don’t want to you load entire file to memory at once. 
+
+1. divide file to with size of K, x*K = 2GB. load each file to memory and sort.
+2. then next
+3. sort all k files and merge. 
