@@ -1,0 +1,140 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset134 PingFangSC-Regular;\f2\fnil\fcharset0 Menlo-Regular;
+}
+{\colortbl;\red255\green255\blue255;\red170\green13\blue145;\red28\green0\blue207;\red196\green26\blue22;
+}
+\margl1440\margr1440\vieww14400\viewh12600\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Stack and Queue\
+\
+1.
+\f1 \'d4\'f5\'c3\'b4\'d3\'c3\'d2\'bb\'b8\'f6
+\f0 array
+\f1 \'c8\'a5\'d7\'f6\'c8\'fd\'b8\'f6
+\f0 stack 
+\f1 \'ce\'d2\'d3\'c3\'b5\'c4\'ca\'c7
+\f0 fixed size
+\f1 \'b5\'c4\'b7\'bd\'b7\'a8\'a3\'ac\'b1\'c8\'bd\'cf\'d0\'a7\'c2\'ca\'b5\'cd\'a1\'a3\'c8\'d5\'ba\'f3\'d4\'d9\'bf\'bc\'c2\'c7\'d3\'c5\'bb\'af
+\f0 \
+	
+\f1 \'b4\'b4\'bd\'a8\'d2\'bb\'b8\'f6int
+\f0  bu
+\f1 f \'c8\'bb\'ba\'f3p_top[0],[1],[2] \'d6\'b8\'cf\'f2\'c8\'fd\'b8\'f6stack\'b5\'c4\'b6\'a5\'b5\'e3\
+	
+\f2\fs22 \CocoaLigature0 \
+\pard\tx529\pardeftab529\pardirnatural\partightenfactor0
+\cf2 void\cf0  push(\cf2 int\cf0  stackNum, \cf2 int\cf0  value)\
+	\{\
+		\cf2 int\cf0  id = stackNum * size + p_top[stackNum] + \cf3 1\cf0 ;\
+		buf[id] = value;\
+		p_top[stackNum]++;\
+	\}\
+\
+\cf2 void\cf0  pop(\cf2 int\cf0  stackNum)\
+	\{\
+		p_top[stackNum]--;\
+	\}\
+\
+\cf2 int\cf0  top (\cf2 int\cf0  stackNum)\
+	\{\
+		\cf2 int\cf0  id = stackNum * size + p_top[stackNum];\
+		\cf2 return\cf0  buf[id];\
+	\}\
+\
+\cf2 bool\cf0  empty(\cf2 int\cf0  stackNum)\
+	\{\
+		\cf2 return\cf0  p_top[stackNum] == -\cf3 1\cf0 ;\
+	\}\
+\
+2 
+\f1 \'d4\'f5\'c3\'b4\'b8\'f8stack\'bc\'d3\'c9\'cf\'d2\'bb\'b8\'f6min\'b9\'a6\'c4\'dc\'c4\'dc\'b9\'bb\'d4\'daconstant time \'b7\'b5\'bb\'d8stack\'b5\'c4\'d7\'ee\'d0\'a1\'d6\'b5\
+   \'d5\'e2\'d6\'d6\'cc\'e2\'a3\'ac\'be\'cd\'ca\'c7\'d0\'e8\'d2\'aa\'c1\'bd\'b8\'f6stack\'a3\'ac\'b2\'bb\'d0\'e8\'d2\'aa\'d3\'cc\'d4\'a5\'a1\'a3\'b5\'b1push\'d2\'bb\'b8\'f6\'ca\'fd\'be\'dd\'b5\'c4\'ca\'b1\'ba\'f2\'a3\'ac\'c8\'e7\'b9\'fbs2\'ca\'c7\'bf\'d5\'a3\'ac\'d6\'b1\'bd\'d3s1\'a3\'acs2\'c8\'eb\'d5\'bb\'a3\'ac\'b5\'b1\'cf\'c2\'d7\'ee\'d0\'a1\'d3\'d0\'c3\'bb\'d3\'d0\'a1\'a3\
+   \'d4\'d9push\'b5\'c3\'ca\'b1\'ba\'f2\'a3\'ac\'b8\'fas2\'d5\'e2\'b8\'f6b\'b1\'c8\'bd\'cf\'d2\'bb\'cf\'c2\'a3\'ac\'c8\'e7\'b9\'fb\'d0\'a1\'a3\'acpush\'bd\'f8s2\'d4\'datop\'a1\'a3\'cb\'f9\'d2\'d4s2\'b5\'c3top\'d3\'c0\'d4\'b6\'ca\'c7\'d7\'ee\'d0\'a1\
+   \'c8\'e7\'b9\'fb\'d2\'aapop\'a1\'a3\'bf\'b4pop\'b5\'c4\'d5\'e2\'b8\'f6\'d6\'b5\'b5\'c8\'b2\'bb\'b5\'c8\'d3\'das2\'b5\'c4top\'a1\'a3\'c8\'e7\'b9\'fb\'b5\'c8\'d3\'da\'a3\'ac\'c1\'bd\'b8\'f6\'b6\'bc\'b5\'af\'d7\'df\'a1\'a3\'c8\'e7\'b9\'fb\'b2\'bb\'b5\'c8\'d3\'da\'a3\'ac\'d6\'bb\'b5\'afs1\'c4\'c7\'b8\'f6\
+\
+3 \'c8\'e7\'b9\'fb\'d2\'bb\'b8\'f6stack\'b6\'d1\'b5\'c3\'cc\'ab\'b8\'df\'a3\'ac\'ce\'d2\'c3\'c7\'d0\'e8\'d2\'aa\'cf\'eb\'d2\'bb\'b8\'f6\'b0\'ec\'b7\'a8\'b0\'d1\'cb\'fc\'b7\'c5\'b5\'bd\'bc\'b8\'b8\'f6\'b2\'bb\'cd\'acstack\'a1\'a3\'bb\'b9\'d2\'aa\'d6\'b8\'cf\'f2\'d2\'bb\'b8\'f6popAt(int index)\
+   \'d0\'e8\'d2\'aa\'c1\'bd\'b8\'f6class\'a3\'ac\'d2\'bb\'b8\'f6stack \'d2\'bb\'b8\'f6SetofStacks\'a1\'a3 stack\'b6\'a8\'d2\'bb\'b8\'f6\'c8\'dd\'c1\'bf\'b1\'c8\'c8\'e7100. SetofStacks\'b6\'a8\'d2\'bb\'b8\'f6\'c8\'dd\'c1\'bf\'a3\'ac\'b1\'c8\'c8\'e710\'a3\'ac\'be\'cd\'ca\'c710\'b8\'f6stack\
+   \'c1\'bd\'b8\'f6class\'b6\'bc\'d3\'d0\'d2\'bb\'b8\'f6cur index\'a1\'a3\'c8\'a5\'c5\'d0\'b6\'cf\'cb\'fb\'c3\'c7\'b5\'c4\'c8\'dd\'c1\'bf\'a1\'a3	\
+	
+\f2 \cf2 void\cf0  popAt(\cf2 int\cf0  index)\
+    \{\
+        \cf2 while\cf0 (st[cur].empty())\
+            --index;\
+        st[index].pop();\
+    \}\
+4 
+\f1 \'ba\'ba\'c5\'b5\'cb\'fe\'ce\'ca\'cc\'e2\'a3\'ac\'d3\'d0\'b5\'e3\'b3\'b6\'b5\'ad\'a1\'a3\'d3\'c3\'b5\'dd\'b9\'e9\'bb\'b9\'ba\'c3\'c0\'ed\'bd\'e2\'a1\'a3\'d3\'c3stack\'d3\'d0\'b5\'e3\'d4\'ce\'b2\'cb\
+	\'b5\'dd\'b9\'e9\'d7\'f6\'b7\'a8\'a3\'ba\
+		
+\f2 \cf2 void\cf0  hanoi(\cf2 int\cf0  n, \cf2 char\cf0  src, \cf2 char\cf0  bri, \cf2 char\cf0  dst)\
+		\{\
+\
+    		\cf2 if\cf0 (n == \cf3 1\cf0 )\
+    	\{\
+        	cout << \cf4 "Move disk "\cf0  << n << \cf4 " from "\cf0  << src << \cf4 " to "\cf0  <<dst << endl;\
+   		 \}\
+   			 \cf2 else\cf0 \
+    	\{\
+        	hanoi(n-\cf3 1\cf0  , src, dst, bri);\
+        	cout << \cf4 "Move disk "\cf0  << n << \cf4 " from "\cf0  << src << \cf4 " to "\cf0  <<dst << endl;\
+        	hanoi(n-\cf3 1\cf0 , bri, src, dst);\
+    	\}\
+		\}\
+	stack
+\f1 \'d7\'f6\'b7\'a8\'a3\'ac
+\f2  
+\f1 \'bb\'b9\'b2\'bb\'c3\'f7\'b0\'d7
+\f2 \
+		\cf2 void\cf0  hanoi_stack(\cf2 int\cf0  n, \cf2 char\cf0  src, \cf2 char\cf0  bri, \cf2 char\cf0  dst)\
+		\{\
+    	stack<hanoi>st;\
+    	hanoi temp;\
+    	st.push(hanoi(\cf3 1\cf0 , n, src, bri, dst));\
+    	\cf2 while\cf0 (!st.empty())\
+    	\{\
+       	 	temp = st.top();\
+        	st.pop();\
+        	\cf2 if\cf0 (temp.begin != temp.end)\
+        	\{\
+            	st.push(hanoi(temp.begin, temp.end-\cf3 1\cf0 , temp.bri, temp.src, temp.dst));\
+            	st.push(hanoi(temp.end, temp.end,temp.src, temp.bri, temp.dst));\
+            	st.push(hanoi(temp.begin, temp.end-\cf3 1\cf0 , temp.src, temp.dst, temp.bri));\
+        	\}\
+        	\cf2 else\cf0 \{\
+            	cout<<\cf4 "Move disk "\cf0 <<temp.begin<<\cf4 " from "\cf0 <<temp.src<<\cf4 " to "\cf0 <<temp.dst<<endl;\
+        		\}\
+    		\}\
+		\}\
+\
+5 
+\f1 \'d3\'c3\'c1\'bd\'b8\'f6
+\f2 stacks
+\f1 \'d7\'f6\'d2\'bb\'b8\'f6
+\f2 queue\
+  
+\f1 \'ba\'dc\'bc\'f2\'b5\'a5\'a3\'ac\'b5\'ab\'ca\'c7\'d0\'e8\'d2\'aa\'d7\'f6\'d2\'bb\'b8\'f6Move\'a3\'a8\'a3\'a9\'a3\'ac\'c8\'e7\'b9\'fb\'d2\'bb\'b1\'df\'bf\'d5\'a3\'ac\'be\'cd\'b0\'d1\'c1\'ed\'d2\'bb\'b1\'df\'b5\'c4\'ca\'fd\'be\'dd\'b8\'f8\'cb\'fb\'a1\'a3\'c1\'bd\'b8\'f6stack\'a3\'ac\'d2\'bb\'b8\'f6in\'a3\'ac\'d2\'bb\'b8\'f6out\
+\
+6 \'d4\'f5\'c3\'b4\'b0\'d1\'d2\'bb\'b8\'f6stack\'c0\'ef\'b5\'c4\'ca\'fd\'be\'dd\'c5\'c5\'b3\'c9\'c9\'fd\'d0\'f2\'a3\'ac \'b1\'c8\'c8\'e7\'d2\'bb\'b8\'f6stack\'c0\'ef\'ca\'c71\'a3\'ac2\'a3\'ac3\'a3\'ac4\'a3\'a8from top to bottom\'a3\'a9\'a1\'a3\'d0\'e8\'d2\'aa\'b1\'e4\'b3\'c94\'a3\'ac3\'a3\'ac2\'a3\'ac1\
+   \'d0\'e8\'d2\'aa\'c1\'bd\'b8\'f6stack\'a1\'a3\'cb\'bc\'c2\'b7\'b1\'c8\'bd\'cf\'c8\'c6\'a3\'ac\'be\'cd\'ca\'c7\'b5\'af\'b3\'f6\'d4\'ad\'cf\'c8\'b5\'c4stack\'a3\'ac\'ce\'d2\'c3\'c7\'bd\'d0s1\'a3\'ac \'b5\'c4\'ca\'fd\'be\'dd\'a1\'a3\'c8\'bb\'ba\'f3\'b8\'fas2\'b5\'c4top\'b1\'c8\'a1\'a3\'c8\'e7\'b9\'fb\'c3\'bb\'d3\'d0\'c8\'cb\'bc\'d2\'b4\'f3\'a3\'acs1\'be\'cd\'b0\'d1s2\'b5\'c4Top\'ca\'fd\'be\'dd\'b5\'af\'c8\'eb\'a3\'acs2\'d4\'f2\'b5\'af\'b3\'f6\'a1\'a3\'c8\'bb\'ba\'f3s2\'b0\'d1s1\'d4\'e7\'cf\'c8\'b5\'af\'b3\'f6\'b5\'c4\'ca\'fd\'be\'dd\'d1\'b9\'d5\'bb\'a1\'a3\
+ \'b9\'e6\'c2\'c9\'be\'cd\'ca\'c7s2\'c9\'cf\'c3\'e6\'b5\'c4\'ca\'c7\'b2\'bb\'ca\'c7\'d7\'ee\'b4\'f3\'a3\'ac\'d7\'ee\'b4\'f3\'be\'cd\'cf\'c8\'b7\'c5\'c8\'ebs1, \'cf\'c8s1\'c0\'ef\'c3\'e6\'d0\'a1\'b5\'c4\'cf\'c8\'cd\'f9\'c0\'ef\'c3\'e6\'b5\'af\'a3\'ac\'d7\'ee\'ba\'f3\'d4\'d9\'b7\'c5\'d5\'e2\'b8\'f6\'d7\'ee\'b4\'f3\'b5\'c4\'a1\'a3\
+\
+	
+\f2 stack<\cf2 int\cf0 >stack_sort(stack<\cf2 int\cf0 >src)\
+	\{\
+   	 	stack<\cf2 int\cf0 >dst;\
+    	\cf2 while\cf0 (!src.empty())\
+    	\{\
+        	\cf2 int\cf0  data = src.top();\
+        	src.pop();\
+        	\cf2 while\cf0 (!dst.empty() && dst.top() > data)\
+        	\{\
+           	 	src.push(dst.top());\
+            	dst.pop();\
+        	\}\
+        		dst.push(data);\
+    	\}\
+    	\cf2 return\cf0  dst;\
+	\}\
+\
+}

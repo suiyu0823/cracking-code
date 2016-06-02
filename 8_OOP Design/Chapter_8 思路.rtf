@@ -1,0 +1,49 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset134 PingFangSC-Regular;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww14400\viewh12600\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 OOP Design 
+\f1 \'a3\'a8\'d0\'b4\'b5\'c4\'b2\'bb\'d5\'a6\'d1\'f9\'a3\'ac\'d2\'f2\'ce\'aa\'cf\'b5\'cd\'b3\'c9\'e8\'bc\'c6\'b7\'bd\'c3\'e6\'bb\'b9\'b2\'bb\'d6\'d8\'ca\'d3\'a3\'a9\
+\
+1 \'c9\'e8\'bc\'c6\'d2\'bb\'b8\'f6\'cd\'a8\'d3\'c3\'b5\'c4\'d6\'bd\'c5\'c6\'a3\'ac \'d4\'f5\'c3\'b4\'d1\'f9\'d7\'f6\'d2\'bb\'b8\'f6subclass of blackjack\
+	\'c4\'c7\'c3\'b4\'ce\'d2\'c3\'c7\'cd\'a8\'b3\'a3\'d2\'aa\'b0\'d1\'d6\'bd\'c5\'c6\'d7\'f6\'b3\'c9abstract\
+	public class BlackJackCard extends Card \{\
+    	public BlackJackCard(int r, Suit s) \{\
+        super(r, s);\
+    \}\
+    public int value() \{\
+        int r = super.value();\
+        if (r == 1) return 11; // aces are 11\
+        if (r < 10) return r;\
+        return 10;\
+    \}\
+    boolean isAce() \{\
+        return super.value() == 1;\
+    \}\
+\}\
+public abstract class Card \{\
+    public enum Suit \{\
+        CLUBS (1),\
+        SPADES (2),\
+        HEARTS (3),\
+        DIAMONDS (4);\
+\
+        int value;\
+        private Suit(int v) \{ value = v; \}\
+    \};\
+    private int card;\
+    private Suit suit;\
+\
+    public Card(int r, Suit s) \{\
+        card = r;\
+        suit = s;\
+    \}\
+    public int value() \{ return card; \}\
+    public Suit suit() \{ return suit; \}\
+\}\
+\
+2. \'c9\'e8\'bc\'c6\'d2\'bb\'b8\'f6\'ba\'f4\'bd\'d0\'d6\'d0\'d0\'c4\'a3\'ac\'bd\'d3\'cf\'df\'d4\'b1\'b2\'bb\'d4\'da\'a3\'ac\'be\'ad\'c0\'ed\'bd\'d3\'a3\'ac\'be\'ad\'c0\'ed\'b2\'bb\'d4\'da\'a3\'ac\'b2\'bf\'b3\'a4\'bd\'d3\'a1\'a3\'d4\'f5\'c3\'b4\'d7\'f6dispatchcall\'a3\'a8\'a3\'a9\
+\
+}

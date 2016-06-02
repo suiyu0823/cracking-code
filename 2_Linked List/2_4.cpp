@@ -49,7 +49,7 @@ node *partition(node *n, int k)
 	node *tail = n;
 	while (n != NULL)
 	{
-		node *next = n->next;
+		node *temp = n->next;
 		if (n->data > k)
 		{
 			n->next = head;
@@ -57,12 +57,10 @@ node *partition(node *n, int k)
 		}
 		else
 		{
-			tail->next = n;
 			tail = n;
 		}
-		n = next;
+		n = temp;
 	}
-	cout << tail->next->data << endl;
 	tail->next = NULL;
 	print(head);
 	return head;

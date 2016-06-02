@@ -1,0 +1,233 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset134 PingFangSC-Regular;\f2\fnil\fcharset0 Menlo-Regular;
+}
+{\colortbl;\red255\green255\blue255;\red170\green13\blue145;\red196\green26\blue22;\red28\green0\blue207;
+\red0\green116\blue0;}
+\margl1440\margr1440\vieww14400\viewh12600\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Tree and Graph\
+\
+1. 
+\f1 \'d4\'f5\'c3\'b4\'c5\'d0\'b6\'cf\'d2\'bb\'b8\'f6\'b6\'fe\'b2\'e6\'ca\'f7\'ca\'c7\'c6\'bd\'ba\'e2\'b5\'c4\'a1\'a3\'be\'cd\'ca\'c7\'c8\'ce\'ba\'ce\'bd\'da\'b5\'e3\'b5\'c4\'d7\'d3\'ca\'f7\'b5\'c4\'b8\'df\'b6\'c8\'b2\'ee\'b2\'bb\'c4\'dc\'b4\'f3\'d3\'da
+\f0 1
+\f1 \'a1\'a3\
+	\'d0\'e8\'d2\'aa\'d2\'bb\'b8\'f6function\'c4\'dc\'b5\'c3\'b5\'bd\'b8\'df\'b6\'c8\'a3\'ac\'b2\'c9\'d3\'c3\'d6\'d0\'d0\'f2\'b1\'e9\'c0\'fa\'a3\'ac\'d7\'f3-\'d6\'d0-\'d3\'d2\'a1\'a3 \'b5\'b1\'c8\'bb\'d2\'aa\'d3\'c3\'b5\'bd\'b5\'dd\'b9\'e9\'a3\'ac\'c9\'ee\'b6\'c8d++\'c8\'e7\'b9\'fb\'d2\'bb\'b8\'f6\'bd\'da\'b5\'e3\'bc\'c8\'c3\'bb\'d3\'d0\'d7\'f3\'ba\'a2\'d7\'d3\'d2\'b2\'c3\'bb\'d3\'d0\'d3\'d2\'ba\'a2\'d7\'d3\'a3\'ac\'cb\'b5\'c3\'f7\'b5\'bd\'b5\'d7\'c1\'cb\'a1\'a3\'b0\'d1\'b5\'c3\'b5\'bd\'b5\'c4\'c9\'ee\'b6\'c8\'b8\'f8\'d2\'bb\'b8\'f6\'ca\'fd\'d7\'e9\'a1\'a3\'c8\'bb\'ba\'f3\'bc\'cc\'d0\'f8\'b1\'e9\'c0\'fa\'d3\'d2\'b1\'df\'a3\'ac\'c9\'ee\'b6\'c8d\'a1\'aa\
+	\'b1\'e9\'c0\'fa\'b5\'c3\'b5\'bd\'c9\'ee\'b6\'c8\'b5\'c4\'ca\'fd\'d7\'e9\'a3\'ac\'c8\'a1\'d7\'ee\'b4\'f3\'ba\'cd\'d7\'ee\'d0\'a1\'a1\'a3\'cf\'e0\'bc\'f5\'a3\'ac\'d6\'b5\'b4\'f3\'d3\'da1\'a3\'ac\'d4\'f2\'b2\'bb\'c6\'bd\'ba\'e2\'a3\'ac\'b7\'b4\'d6\'ae\'d2\'e0\'c8\'bb\'a1\'a3\
+	
+\f2\fs22 \cf2 \CocoaLigature0 void\cf0  getDepth(Node*& head)\
+\pard\tx529\pardeftab529\pardirnatural\partightenfactor0
+\cf0 	\{\
+    	\cf2 if\cf0 (head == \cf2 NULL\cf0 ) \cf2 return\cf0 ;\
+    	++d;\
+    	getDepth(head->lchild);\
+    	\cf2 if\cf0 (head->lchild == \cf2 NULL\cf0  && head->rchild == \cf2 NULL\cf0 )\
+    	\{\
+       	 dep[num++] = d;\
+       	 cout << \cf3 "to the depth "\cf0  << \cf3 "d is "\cf0  << d << \cf3 " "\cf0  << head->key << endl;\
+    	\}\
+   		 getDepth(head->rchild);\
+   		 --d;\
+	\}\
+\
+2. 
+\f1 \'d1\'b0\'d5\'d2\'cd\'bc\'b5\'c4\'c2\'b7\'be\'b6\'a3\'ac\'b9\'e3\'b6\'c8\'d3\'c5\'cf\'c8\'a3\'a8BFS\'a3\'a9\
+	
+\f2 \cf2 bool\cf0  isRoute(\cf2 int\cf0  src, \cf2 int\cf0  dest)\
+	\{\
+    	q.push(src);\
+    	visited[src] = \cf2 true\cf0 ;\
+    	\cf2 while\cf0 (!q.empty())\
+    	\{\
+        	\cf2 int\cf0  t = q.front();\
+        	q.pop();\
+        	\cf2 if\cf0 (t == dest) \cf2 return\cf0  \cf2 true\cf0 ;\
+        	\cf2 for\cf0  (\cf2 int\cf0  i = \cf4 0\cf0 ; i < n; i++)\
+        	\{\
+            	\cf2 if\cf0 (g[t][i] && !visited[i] )\
+            	\{\
+                	q.push(i);\
+                	visited[i] = \cf2 true\cf0 ;\
+            	\}\
+        	\}\
+    	\}\
+   	 \cf2 return\cf0  \cf2 false\cf0 ;\
+	\}	\
+\
+3 
+\f1 \'b8\'f8\'d2\'bb\'b8\'f6\'d2\'d1\'be\'ad\'c5\'c5\'d0\'f2\'b9\'fd\'ba\'f3\'b5\'c4\'ca\'fd\'d7\'e9\'a3\'ac\'b4\'b4\'bd\'a8\'d2\'bb\'b8\'f6\'d3\'d0\'d7\'ee\'d0\'a1\'b8\'df\'b6\'c8\'b5\'c4
+\f2 BST\
+  BST
+\f1 \'d3\'c3\'b5\'dd\'b9\'e9\'a3\'ac\'d7\'f3\'b1\'df\'c8\'ab\'b2\'bf\'d6\'b5\'b1\'c8root\'d0\'a1\'a3\'ac\'d3\'d2\'b1\'df\'c8\'ab\'b2\'bf\'d6\'b5\'b1\'c8root\'b4\'f3\'a1\'a3\
+	
+\f2 \cf2 void\cf0  create_minimum_tree(Node*& head, Node* parent, \cf2 int\cf0  a[], \cf2 int\cf0  start, \cf2 int\cf0  end)\
+	\{\
+    	\cf2 if\cf0 (start <= end)\
+    	\{\
+        	\cf2 int\cf0  mid = (start + end) / \cf4 2\cf0 ;\
+        	node[cnt].key = a[mid];\
+        	node[cnt].parent = parent;\
+        	head = &node[cnt++];\
+        	create_minimum_tree(head->lchild, head, a, start, mid-\cf4 1\cf0 );\
+        	create_minimum_tree(head->rchild, head, a, mid+\cf4 1\cf0 , end);\
+    	\}\
+	\}\
+\
+4 
+\f1 \'d3\'c3
+\f2 linkedlist
+\f1 \'d4\'da\'b4\'e6\'b4\'a2\'c3\'bf\'d2\'bb\'b2\'e3\'b5\'c4
+\f2 nodes\
+   vector<list<Node*> > res; 
+\f1 \'cc\'e2\'b5\'c4\'cb\'bc\'c2\'b7\'ca\'c7\'d4\'f5\'c3\'b4\'ca\'b9\'d3\'c3STL\'c4\'c7\'d0\'a9\'c8\'dd\'c6\'f7\'a1\'a3
+\f2 	\
+	vector<list<Node*> > find_level_linklists(Node *head)\{\
+    vector<list<Node*> > res;\
+    \cf2 int\cf0  level = \cf4 0\cf0 ;\
+    list<Node*> li;\
+    li.push_back(head);\
+    res.push_back(li);\
+    \cf2 while\cf0 (!res[level].empty())\{\
+        list<Node*> l;\
+        list<Node*>::iterator it;\
+        \cf2 for\cf0 (it=res[level].begin(); it!=res[level].end(); ++it)\{\
+            Node *n = *it;\
+            \cf2 if\cf0 (n->lchild) l.push_back(n->lchild);\
+            \cf2 if\cf0 (n->rchild) l.push_back(n->rchild);\
+        \}\
+        ++level;\
+        res.push_back(l);\
+    \}\
+    \cf2 return\cf0  res;\
+\}\
+\
+5 
+\f1 \'b6\'fe\'b2\'e6\'ca\'f7\'d6\'d0\'d0\'f2\'b1\'e9\'c0\'fa\'b5\'c4\'c7\'f3\'bc\'cc\'b3\'d0\'c8\'cb\'b5\'c4\'ce\'ca\'cc\'e2\'a3\'ba
+\f2 \
+\
+
+\f1 \'c8\'e7\'b9\'fb
+\f2 current node
+\f1 \'d3\'d0\'d3\'d2\'b1\'df\'b5\'c4\'ba\'a2\'d7\'d3\'a3\'ac\'b2\'a2\'c7\'d2\'d3\'d2\'b1\'df\'b5\'c4\'ba\'a2\'d7\'d3\'d3\'d0\'d7\'f3\'b1\'df\'b5\'c4\'ba\'a2\'d7\'d3\'a3\'ac\'c4\'c7\'c3\'b4\'bc\'cc\'b3\'d0\'c8\'cb\'be\'cd\'ca\'c7\'d5\'e2\'b8\'f6\'a3\'a8\'d7\'ee\'a3\'ac\'a3\'ac\'bf\'b4\'d7\'f3\'b1\'df\'bb\'b9\'d3\'d0\'c3\'bb\'d3\'d0\'d7\'f3\'b1\'df\'a3\'a9\'d7\'f3\'b1\'df\'b5\'c4\'ba\'a2\'d7\'d3\'a1\'a3
+\f2 \
+
+\f1 \'c8\'e7\'b9\'fb\'d3\'d2\'b1\'df\'b5\'c4\'ba\'a2\'d7\'d3\'c3\'bb\'d3\'d0\'d7\'f3\'b1\'df\'b5\'c4\'ba\'a2\'d7\'d3\'a3\'ac\'c4\'c7\'c3\'b4\'bc\'cc\'b3\'d0\'c8\'cb\'be\'cd\'ca\'c7\'d3\'d2\'b1\'df\'b5\'c4\'d5\'e2\'b8\'f6\'ba\'a2\'d7\'d3\'b1\'be\'c9\'ed
+\f2 \
+\
+
+\f1 \'c8\'e7\'b9\'fb\'bc\'c8\'c3\'bb\'d3\'d0\'d7\'f3\'ba\'a2\'d7\'d3\'d2\'b2\'c3\'bb\'d3\'d0\'d3\'d2\'ba\'a2\'d7\'d3\'a3\'ac\'d2\'bb\'b0\'e3\'be\'cd\'ca\'c7\'b5\'bd\'c1\'cb\'ca\'f7\'b5\'c4\'b5\'cd\'b6\'cb\'a3\'ac\'c4\'c7\'c3\'b4\'be\'cd\'d2\'aa\'cd\'f9\'c9\'cf\'d5\'d2\'b8\'b8\'c4\'b8\'bd\'da\'b5\'e3\'a1\'a3\'d5\'d2\'b5\'bd\'b5\'da\'d2\'bb\'b8\'f6\'b1\'c8\'cb\'fb\'b4\'f3\'b5\'c4\'b8\'b8\'bd\'da\'b5\'e3\'a3\'a8\'d7\'f3\'b1\'df)\'a3\'ac\'c4\'c7\'be\'cd\'ca\'c7\'bc\'cc\'b3\'d0\'c8\'cb\'a1\'a3
+\f2 \
+	Node* minimal(Node* no) //
+\f1 \'b6\'d4\'d3\'da\'bd\'da\'b5\'e3\'d3\'d0\'d3\'d2\'ba\'a2\'d7\'d3\'a3\'ac\'d3\'d2\'ba\'a2\'d7\'d3\'d7\'d4\'bc\'ba\'bb\'b9\'d3\'d0\'d7\'f3\'ba\'a2\'d7\'d3\'a3\'ac\'d7\'ee\'bc\'f2\'b5\'a5\'b5\'c4\'c7\'e9\'bf\'f6\'a1\'a3
+\f2 \
+	\{\
+    \cf2 if\cf0 (no == \cf2 NULL\cf0 ) \cf2 return\cf0  \cf2 NULL\cf0 ;\
+    \cf2 while\cf0 (no->lchild)\
+        no = no->lchild;\
+    \cf2 return\cf0  no;\
+	\}\
+\
+Node* successor(Node* no)\{\
+    \cf2 if\cf0 (no == \cf2 NULL\cf0 ) \cf2 return\cf0  \cf2 NULL\cf0 ;\
+    \cf2 if\cf0 (no->rchild) \cf2 return\cf0  minimal(no->rchild);\
+    Node *y = no->parent; 
+\f1 \'b6\'d4\'d3\'da\'d7\'d4\'bc\'ba\'c3\'bb\'d3\'d0\'d3\'d2\'ba\'a2\'d7\'d3\'a3\'ac\'d2\'aa\'b2\'bb\'be\'cd\'d6\'bb\'d3\'d0\'d7\'f3\'ba\'a2\'d7\'d3\'a3\'ac\'d2\'aa\'b2\'bb\'be\'cd\'ca\'c7\'ca\'f7\'b5\'c4\'b5\'cd\'b6\'cb\'b5\'c4\'c7\'e9\'bf\'f6
+\f2 \
+    \cf2 while\cf0 (y && y->rchild==no)\{\
+        no = y;\
+        y = y->parent;\
+    \}\
+    \cf2 return\cf0  y;\
+\}\
+\
+6 
+\f1 \'bf\'b4\'d2\'bb\'b8\'f6\'b6\'fe\'b2\'e6\'ca\'f7\'ca\'c7\'b2\'bb\'ca\'c7
+\f2 BST\
+  
+\f1 \'d3\'c3\'d6\'d0\'d0\'f2\'b1\'e9\'c0\'fa\'a3\'ac\'d2\'b2\'d2\'aa\'d2\'bb\'b8\'f6vector\'a1\'a3\'d7\'f3\'d6\'d0\'d3\'d2\'a1\'a3\'c8\'bb\'ba\'f3\'b1\'e9\'c0\'favector\'c7\'b0\'d2\'bb\'b8\'f6\'ca\'fd\'be\'dd\'ca\'c7\'b2\'bb\'ca\'c7\'b1\'c8\'ba\'f3\'d2\'bb\'b8\'f6\'ca\'fd\'be\'dd\'d0\'a1\
+	
+\f2 \cf2 void\cf0  copyBST(Node* root, vector<\cf2 int\cf0 > &v)\
+	\{\
+    \cf2 if\cf0 (root == \cf2 NULL\cf0 ) \cf2 return\cf0 ;\
+    copyBST(root->lchild, v);\
+    v.push_back(root->key);\
+    copyBST(root->rchild, v);\
+	\}\
+\
+\cf2 bool\cf0  checkBST(Node* root)\
+\{\
+    copyBST(root, v);\
+    cout << v.size() << endl;\
+    \cf2 for\cf0 (\cf2 int\cf0  i = \cf4 1\cf0 ; i < v.size(); i++)\
+    \{\
+        \cf2 if\cf0 (v[i] <= v[i - \cf4 1\cf0 ])\
+            \cf2 return\cf0  \cf2 false\cf0 ;\
+    \}\
+    \cf2 return\cf0  \cf2 true\cf0 ;\
+\}\
+\
+7 
+\f1 \'d5\'d2\'c1\'bd\'b8\'f6\'bd\'da\'b5\'e3\'b5\'c4\'b9\'b2\'cd\'ac\'d7\'e6\'d7\'da
+\f2 \
+  
+\f1 \'b5\'dd\'b9\'e9\'ca\'c7\'bf\'cf\'b6\'a8\'c9\'d9\'b2\'bb\'c1\'cb\'b5\'c4\'a1\'a3\'ce\'d2\'c3\'c7\'b5\'b1\'c8\'bb\'d2\'aa\'c5\'d0\'b6\'cf\'c1\'bd\'b8\'f6\'bd\'da\'b5\'e3\'ca\'c7\'b2\'bb\'ca\'c7\'d4\'da\'d2\'bb\'b1\'df\'a1\'a3 \'ca\'d7\'cf\'c8\'bf\'b4\'bf\'b4\'ca\'c7\'b2\'bb\'ca\'c7\'b6\'bc\'d4\'da\'d7\'f3\'b1\'df\'a1\'a3\'b5\'dd\'b9\'e9\'d7\'f3\'b1\'df\'a1\'a3\'c8\'e7\'b9\'fb\'b7\'a2\'cf\'d6\'d7\'f3\'b1\'df\'b5\'c4\'ba\'a2\'d7\'d3\'b5\'c8\'d3\'da\'c6\'e4\'d6\'d0\'d2\'bb\'b8\'f6\'bd\'da\'b5\'e3\'b5\'c4\'d6\'b5\'a3\'ac\'d5\'d2\'b5\'bd\'d2\'bb\'b8\'f6\'a1\'a3\'c4\'c7\'c3\'b4\'cf\'c8\'bc\'c7\'c2\'bc\'d5\'e2\'b8\'f6\'bd\'da\'b5\'e3\'a1\'a3\'c8\'bb\'ba\'f3\'d4\'da\'d3\'d2\'b1\'df\'a3\'ac\'d5\'d2\'b5\'bd\'bc\'c7\'c2\'bc\'d5\'e2\'b8\'f6\'bd\'da\'b5\'e3\'a1\'a3 \'b5\'b1\'d7\'f3\'d3\'d2\'d5\'d2\'b5\'bd\'b5\'c4\'c1\'bd\'b8\'f6\'bd\'da\'b5\'e3\'b6\'bc\'b2\'bb\'ce\'aa\'bf\'d5\'b5\'c4\'ca\'b1\'ba\'f2\'a3\'ac\'b7\'b5\'bb\'d8\'b5\'c4\'be\'cd\'ca\'c7\'b9\'b2\'cd\'ac\'d7\'e6\'cf\'c8\'a1\'a3\
+\
+
+\f2 \cf2 struct\cf0  Node *findLCA(\cf2 struct\cf0  Node* root, \cf2 int\cf0  n1, \cf2 int\cf0  n2)\
+\{\
+    \cf5 // Base case\cf0 \
+    \cf2 if\cf0  (root == \cf2 NULL\cf0 ) \cf2 return\cf0  \cf2 NULL\cf0 ;\
+    \
+    \cf5 // If either n1 or n2 matches with root's key, report\cf0 \
+    \cf5 // the presence by returning root (Note that if a key is\cf0 \
+    \cf5 // ancestor of other, then the ancestor key becomes LCA\cf0 \
+    \cf2 if\cf0  (root->key == n1 || root->key == n2)\
+        \cf2 return\cf0  root;\
+    \
+    \cf5 // Look for keys in left and right subtrees\cf0 \
+    Node *left_lca  = findLCA(root->left, n1, n2);\
+    Node *right_lca = findLCA(root->right, n1, n2);\
+    \
+    \cf5 // If both of the above calls return Non-NULL, then one key\cf0 \
+    \cf5 // is present in once subtree and other is present in other,\cf0 \
+    \cf5 // So this node is the LCA\cf0 \
+    \cf2 if\cf0  (left_lca && right_lca)  \cf2 return\cf0  root;\
+    \
+    \cf5 // Otherwise check if left subtree or right subtree is LCA\cf0 \
+    \cf2 return\cf0  (left_lca != \cf2 NULL\cf0 )? left_lca: right_lca;\
+\}\
+\
+8 
+\f1 \'c5\'d0\'b6\'cf\'d2\'bb\'b8\'f6\'ca\'f7\'ca\'c7\'b2\'bb\'ca\'c7\'c1\'ed\'d2\'bb\'b8\'f6\'ca\'f7\'b5\'c4\'d7\'d3\'ca\'f7\
+   \'bb\'b9\'ca\'c7\'b5\'dd\'b9\'e9\'a1\'a3subtree(r1->lchild, r2) || subtree(r1->rchild, r2) \'c8\'e7\'b9\'fb\'b5\'dd\'b9\'e9\'b7\'a2\'cf\'d6 r1->key == r2->key\'a3\'ac\'c4\'c7\'c3\'b4\'be\'cd\'c8\'a5match\
+   match(r1, r2) \'c8\'e7\'b9\'fbr1 && r2 ==NULL \'cb\'b5\'c3\'f7\'c1\'bd\'b8\'f6\'b6\'bc\'b5\'bd\'b5\'d7\'c1\'cb\'a1\'a3\'c4\'c7\'bf\'cf\'b6\'a8\'bf\'c9\'d2\'d4\'a3\'ac\'b7\'b5\'bb\'d8\'d5\'e6 \
+			\'c8\'e7\'b9\'fbr1 || r2 == NULL \'cb\'b5\'c3\'f7\'c6\'e4\'d6\'d0\'d2\'bb\'b8\'f6\'b5\'bd\'b5\'d7\'c1\'cb\'a3\'ac\'c4\'c7\'bf\'cf\'b6\'a8\'b2\'bb\'b6\'d4\'a3\'ac\'b7\'b5\'bb\'d8\'bc\'d9\
+			\'c8\'e7\'b9\'fb\'d6\'b5\'b2\'bb\'cf\'e0\'b5\'c8\'a3\'ac\'d2\'b2\'b2\'bb\'b6\'d4\
+			\'bc\'cc\'d0\'f8\'b5\'dd\'b9\'e9 match(r1->lchild, r2->lchild) && match(r1->rchild, r2->rchild )\'c1\'bd\'b8\'f6\'b4\'f3\'c8\'cb\'d2\'bb\'d1\'f9\'a3\'ac\'c8\'bb\'ba\'f3\'bf\'aa\'ca\'bc\'b1\'c8\'ba\'a2\'d7\'d3\'a3\'ac\'d2\'bb\'d6\'b1\'b1\'c8\'b5\'bd\'b5\'d7\'a1\'a3
+\f2 \
+\
+9 
+\f1 \'b8\'f8\'b6\'a8\'d2\'bb\'b8\'f6\'ca\'fd\'d6\'b5\'a3\'ac\'d2\'aa\'c7\'f3\'b7\'b5\'bb\'d8\'d4\'da\'b6\'fe\'b2\'e6\'ca\'f7\'c0\'ef\'bc\'d3\'c6\'f0\'c0\'b4\'b5\'c8\'d3\'da\'d5\'e2\'b8\'f6\'d6\'b5\'b5\'c4\'bd\'da\'b5\'e3\'b5\'c4\'cb\'f9\'d3\'d0\'c2\'b7\'be\'b6\
+  \'cb\'bc\'c2\'b7\'a3\'ba\'b4\'d3\'c3\'bf\'b8\'f6\'bd\'da\'b5\'e3\'cf\'f2\'c9\'cf\'d7\'df\'a3\'ac\'b5\'bd\'c6\'e4\'b5\'c4\'b8\'b8\'bd\'da\'b5\'e3\'a3\'ac\'d2\'bb\'c2\'b7\'c9\'cf\'bf\'b4\'ca\'c7\'b7\'f1\'cf\'e0\'bc\'d3\'b5\'c4\'d6\'b5\'b5\'c8\'d3\'da\'b8\'f8\'b6\'a8\'d6\'b5 \'bb\'b9\'ca\'c7\'b5\'dd\'b9\'e9\
+  
+\f2 \cf2 void\cf0  find_sum(Node* head, \cf2 int\cf0  sum)\{\
+    \cf2 if\cf0 (head == \cf2 NULL\cf0 ) \cf2 return\cf0 ;\
+    Node *no = head;\
+    \cf2 int\cf0  tmp = \cf4 0\cf0 ;\
+    \cf2 for\cf0 (\cf2 int\cf0  i=\cf4 1\cf0 ; no!=\cf2 NULL\cf0 ; ++i)\{\
+        tmp += no->key;\
+        \cf2 if\cf0 (tmp == sum)\
+            print(head, i);\
+        no = no->parent;\
+    \}\
+    \cf5 //cout << "tmp is " << tmp << endl;\cf0 \
+    find_sum(head->lchild, sum);\
+    find_sum(head->rchild, sum);\
+\}\
+\
+\
+
+\f1 \'d7\'dc\'bd\'e1\'a3\'ba
+\f2  
+\f1 \'ca\'f7\'ba\'cd\'cd\'bc\'b5\'c4\'bb\'f9\'b1\'be\'cb\'bc\'c2\'b7\'be\'cd\'ca\'c7\'b1\'e9\'c0\'fa\'d5\'fb\'b8\'f6\'bd\'da\'b5\'e3\'a3\'ac\'d5\'d2\'b8\'f7\'d6\'d6\'b6\'ab\'ce\'f7\'a3\'ac\'bb\'f9\'b1\'be\'cb\'bc\'c2\'b7\'be\'cd\'ca\'c7\'ca\'b9\'d3\'c3\'b5\'dd\'b9\'e9\'a1\'a3\'d3\'d0\'d6\'d0\'d0\'f2\'a3\'ac\'c7\'b0\'d0\'f2\'a3\'ac\'ba\'f3\'d0\'f2\'a1\'a3 \'d6\'d0\'d0\'f2\'d2\'d1\'be\'ad\'cb\'b5\'c1\'cb\'a3\'ac\'c7\'b0\'d0\'f2\'be\'cd\'ca\'c7\'d6\'d0-\'d7\'f3-\'d3\'d2\
+\'ba\'f3\'d0\'f2\'be\'cd\'ca\'c7\'d3\'d2-\'d6\'d0-\'d7\'f3}
